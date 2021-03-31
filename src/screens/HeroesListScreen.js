@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { Context } from '../context/MarvelContext';
+import HeroItem from '../components/HeroItem';
 
 const HeroesListScreen = ({ navigation }) => {
     const { state, getHeroes } = useContext(Context);
@@ -11,10 +12,22 @@ const HeroesListScreen = ({ navigation }) => {
         return () => listener.remove();
     }, []);
 
-    console.log(state.data);
+    console.log('============== state =========');
+    console.log(state);
 
     return (
-        <Text style={styles.title}>Heroes List Screen</Text>
+        <>
+            {state.isLoaded ?
+                <FlatList
+                
+                    data={state.data.data.results}
+                    keyExtractor={(result) => result.id}
+                    renderItem={({ item }) => {
+                        return <TouchableOpacity><HeroItem item={item} /></TouchableOpacity>
+                    }} />
+                : <Text style={styles.title}>No heroes to show</Text>}
+        </>
+
     );
 };
 

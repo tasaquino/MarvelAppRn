@@ -4,7 +4,7 @@ import marvelApi from '../api/marvelApi';
 const marvelReducer = (state, action) => {
     switch (action.type) {
         case 'get_heroes':
-            return action.payload;
+            return {isLoaded: true, data: action.payload};
         default:
             return state;
     }
@@ -31,5 +31,5 @@ const getHeroes = (dispatch) => {
 export const { Context, Provider } = createDataContext(
     marvelReducer,
     { getHeroes },
-    []
+    { isLoaded: false }
 );
