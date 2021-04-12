@@ -15,7 +15,7 @@ const getHeroes = (dispatch) => {
         try {
             const response = await marvelApi.get('/v1/public/characters', {
                 params: {
-                    nameStartsWith: "Scarlet Witch",
+                    // nameStartsWith: "Scarlet Witch",
                 }
             });
 
