@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 
-const FeaturedHero = ({ item }) => {
+const FeaturedHero = ({ item, navigator }) => {
     const imageUrl = `${item.thumbnail.path}.${item.thumbnail.extension}`;
     return <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: imageUrl }} resizeMode='cover'/>
+        <Image style={styles.image} source={{ uri: imageUrl }} resizeMode='cover' />
         <View style={styles.detail}>
             <Text style={styles.title}>{item.name}</Text>
             <Text style={styles.description}>{item.description}</Text>
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
     detail: {
         backgroundColor: '#f4f3ee',
-        opacity:0.8
+        opacity: 0.8
     },
     title: {
         fontSize: 12,
@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         width: 200,
         padding: 8,
-        color:'black'
+        color: 'black'
     },
     description: {
         fontSize: 12,
         marginBottom: 8,
         width: 200,
         padding: 8,
-        color:'black'
+        color: 'black'
     },
 });
 
